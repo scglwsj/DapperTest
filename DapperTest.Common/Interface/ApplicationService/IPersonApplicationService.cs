@@ -7,5 +7,7 @@ namespace DapperTest.Common.Interface.ApplicationService
     {
         void Insert(Person person);
         void InsertBulk(IReadOnlyList<Person> people);
+        Person FindById(int id);
+        IList<Person> FindByIds(IReadOnlyList<int> ids);
     }
 }

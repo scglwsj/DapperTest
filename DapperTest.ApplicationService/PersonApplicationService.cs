@@ -25,7 +25,16 @@ namespace DapperTest.ApplicationService
         public void InsertBulk(IReadOnlyList<Person> people)
         {
             _personRepository.InsertBulk(people.Select(p => new PersonDo(p)).ToList());
+        }
 
+        public Person FindById(int id)
+        {
+            return _personRepository.FindById(id).ConvertToPerson();
+        }
+
+        public IList<Person> FindByIds(IReadOnlyList<int> ids)
+        {
+            return _personRepository.FindByIds(ids).Select(p => p.ConvertToPerson()).ToList();
         }
     }
 }

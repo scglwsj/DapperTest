@@ -19,6 +19,9 @@
             Status = (byte) p.Status;
         }
 
-        public Person ConvertToPerson => new Person(Id,Name,Remark,(PersonStatus)Status);
+        public Person ConvertToPerson()
+        {
+            return new Person(Id, Name, Remark, (PersonStatus) Status);
+        }
     }
 }
