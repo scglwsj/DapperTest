@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperTest.ApplicationService", "DapperTest.ApplicationService\DapperTest.ApplicationService.csproj", "{543C7FBA-7B89-4327-8165-D014DF8EB720}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperTest.ConsoleApplication", "DapperTest.ConsoleApplication\DapperTest.ConsoleApplication.csproj", "{E80AE020-37E0-4C84-BC12-2C4F211453BC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{13F6D0B9-0A3F-417A-9964-BB309805C929}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperTest.Common", "DapperTest.Common\DapperTest.Common.csproj", "{03D8EE7A-7235-4C4F-8DA3-5FD31C82502F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DapperTest.Repository", "DapperTest.Repository\DapperTest.Repository.csproj", "{3F515094-2F01-4DDA-A248-8602C2083083}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{543C7FBA-7B89-4327-8165-D014DF8EB720}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{543C7FBA-7B89-4327-8165-D014DF8EB720}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{543C7FBA-7B89-4327-8165-D014DF8EB720}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{543C7FBA-7B89-4327-8165-D014DF8EB720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80AE020-37E0-4C84-BC12-2C4F211453BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80AE020-37E0-4C84-BC12-2C4F211453BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80AE020-37E0-4C84-BC12-2C4F211453BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80AE020-37E0-4C84-BC12-2C4F211453BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03D8EE7A-7235-4C4F-8DA3-5FD31C82502F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03D8EE7A-7235-4C4F-8DA3-5FD31C82502F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03D8EE7A-7235-4C4F-8DA3-5FD31C82502F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03D8EE7A-7235-4C4F-8DA3-5FD31C82502F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F515094-2F01-4DDA-A248-8602C2083083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F515094-2F01-4DDA-A248-8602C2083083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F515094-2F01-4DDA-A248-8602C2083083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F515094-2F01-4DDA-A248-8602C2083083}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8EFF39A0-E547-4DCE-83F3-C9F144EE8363}
+	EndGlobalSection
+EndGlobal
