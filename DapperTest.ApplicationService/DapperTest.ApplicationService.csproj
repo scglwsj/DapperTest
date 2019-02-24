@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DapperTest.Common\DapperTest.Common.csproj" />
+    <ProjectReference Include="..\DapperTest.Repository\DapperTest.Repository.csproj" />
+  </ItemGroup>
+
 </Project>
