@@ -33,11 +33,11 @@ namespace DapperTest.ConsoleApplication
             Console.WriteLine(team.Name);
             Console.WriteLine(team.Owner.Name);
 
-//            var team = teamApplicationService.FindById(1);
-//            Console.WriteLine(team.Name);
-//            Console.WriteLine(team.Owner.Name);
-//            Console.WriteLine(team.Members[0].Name);
-//            Console.WriteLine(team.Members[1].Name);
+            var team2 = teamApplicationService.FindById(1);
+            Console.WriteLine(team2.Name);
+            Console.WriteLine(team2.Owner.Name);
+            Console.WriteLine(team2.Members[0].Name);
+            Console.WriteLine(team2.Members[1].Name);
 
             Console.WriteLine("按任意键退出");
             Console.Read();

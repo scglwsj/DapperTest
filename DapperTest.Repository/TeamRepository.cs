@@ -1,4 +1,6 @@
-﻿using Dapper;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Dapper;
 using DapperTest.Common.Interface.Repository;
 using DapperTest.Common.Models.People;
 using DapperTest.Common.Models.Teams;
@@ -9,7 +11,32 @@ namespace DapperTest.Repository
     {
         public TeamDo FindById(int id)
         {
-            throw new System.NotImplementedException();
+            const string sql = @"SELECT * FROM [Teams] t
+                                 INNER JOIN[People] o
+                                   ON o.Id = t.OwnerId
+                                 INNER JOIN[TeamMembers] r
+                                   ON r.TeamId = t.Id
+                                 INNER JOIN[People] m
+                                   ON m.Id = r.PersonId
+                                 WHERE t.Id = @Id";
+
+            using (var connection = DbConnection.GetDbConnection())
+            {
+                TeamDo result = null;
+
+                return connection.Query<TeamDo, PersonDo, PersonDo, TeamDo>(sql, (team, owner, members) =>
+                {
+                    if (result == null)
+                    {
+                        result = team;
+                        result.Owner = owner;
+                        result.Members = new List<PersonDo>();
+                    }
+
+                    result.Members.Add(members);
+                    return result;
+                }, new {Id = id}).Distinct().SingleOrDefault();
+            }
         }
 
         public TeamDo FindByOwnerId(int id)
