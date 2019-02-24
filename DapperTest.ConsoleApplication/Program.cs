@@ -1,4 +1,5 @@
-﻿using DapperTest.Common.Interface.ApplicationService;
+﻿using System.Collections.Generic;
+using DapperTest.Common.Interface.ApplicationService;
 using DapperTest.Common.Models.People;
 using Unity;
 
@@ -12,7 +13,12 @@ namespace DapperTest.ConsoleApplication
             var container = ContainerRegister.GetContainer();
             var personApplicationService = container.Resolve<IPersonApplicationService>();
 
-            personApplicationService.Insert(new Person("test name2", "test remark2"));
+//            personApplicationService.Insert(new Person("test name2", "test remark2"));
+            personApplicationService.InsertBulk(new List<Person>
+            {
+                new Person("bulk test name", "bulk test remark"),
+                new Person("bulk test name2", "bulk test remark2")
+            });
         }
     }
 }
