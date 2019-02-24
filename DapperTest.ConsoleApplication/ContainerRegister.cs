@@ -8,12 +8,17 @@ namespace DapperTest.ConsoleApplication
 {
     public class ContainerRegister
     {
+        private static readonly IUnityContainer Container = new UnityContainer();
+
         public static void InitContainer()
         {
-            IUnityContainer container = new UnityContainer();
+            Container.RegisterType<IPersonApplicationService, PersonApplicationService>();
+            Container.RegisterType<IPersonRepository, PersonRepository>();
+        }
 
-            container.RegisterType<IPersonApplicationService, PersonApplicationService>();
-            container.RegisterType<IPersonRepository, PersonRepository>();
+        public static IUnityContainer GetContainer()
+        {
+            return Container;
         }
     }
 }

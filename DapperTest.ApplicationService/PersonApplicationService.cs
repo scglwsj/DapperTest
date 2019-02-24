@@ -1,6 +1,5 @@
 ﻿using DapperTest.Common.Interface.ApplicationService;
 using DapperTest.Common.Interface.Repository;
-using DapperTest.Common.Models;
 using DapperTest.Common.Models.People;
 using Unity;
 
