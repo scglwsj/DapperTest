@@ -12,6 +12,7 @@ namespace DapperTest.ConsoleApplication
             ContainerRegister.InitContainer();
             var container = ContainerRegister.GetContainer();
             var personApplicationService = container.Resolve<IPersonApplicationService>();
+            var teamApplicationService = container.Resolve<ITeamApplicationService>();
 
 //            personApplicationService.Insert(new Person("test name", "test remark"));
 //            personApplicationService.Insert(new Person("test name2", "test remark2"));
@@ -27,6 +28,17 @@ namespace DapperTest.ConsoleApplication
 
             Console.WriteLine(people[0].Name);
             Console.WriteLine(people[1].Name);
+
+            var team = teamApplicationService.FindByOwnerId(2);
+            Console.WriteLine(team.Name);
+            Console.WriteLine(team.Owner.Name);
+
+//            var team = teamApplicationService.FindById(1);
+//            Console.WriteLine(team.Name);
+//            Console.WriteLine(team.Owner.Name);
+//            Console.WriteLine(team.Members[0].Name);
+//            Console.WriteLine(team.Members[1].Name);
+
             Console.WriteLine("按任意键退出");
             Console.Read();
         }

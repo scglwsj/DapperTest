@@ -14,6 +14,8 @@ namespace DapperTest.ConsoleApplication
         {
             Container.RegisterType<IPersonApplicationService, PersonApplicationService>();
             Container.RegisterType<IPersonRepository, PersonRepository>();
+            Container.RegisterType<ITeamApplicationService, TeamApplicationService>();
+            Container.RegisterType<ITeamRepository, TeamRepository>();
         }
 
         public static IUnityContainer GetContainer()
