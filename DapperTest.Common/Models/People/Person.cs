@@ -21,5 +21,10 @@
             Remark = remark;
             Status = status;
         }
+
+        public void Delete()
+        {
+            Status = PersonStatus.Deleted;
+        }
     }
 }

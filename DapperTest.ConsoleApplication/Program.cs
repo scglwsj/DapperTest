@@ -20,12 +20,13 @@ namespace DapperTest.ConsoleApplication
 //                new Person("bulk test name", "bulk test remark"),
 //                new Person("bulk test name2", "bulk test remark2")
 //            });
-            var person = personApplicationService.FindById(1);
+            var person = personApplicationService.FindById(2);
             var people = personApplicationService.FindByIds(new List<int> {1, 2, 3});
             Console.WriteLine(person.Name);
+//            personApplicationService.Delete(person);
+
             Console.WriteLine(people[0].Name);
             Console.WriteLine(people[1].Name);
-            Console.WriteLine(people[2].Name);
             Console.WriteLine("按任意键退出");
             Console.Read();
         }

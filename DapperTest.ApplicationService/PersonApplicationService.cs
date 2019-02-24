@@ -36,5 +36,11 @@ namespace DapperTest.ApplicationService
         {
             return _personRepository.FindByIds(ids).Select(p => p.ConvertToPerson()).ToList();
         }
+
+        public void Delete(Person person)
+        {
+            person.Delete();
+            _personRepository.Update(new PersonDo(person));
+        }
     }
 }

@@ -43,5 +43,34 @@ namespace DapperTest.Repository
                 return connection.Query<PersonDo>(sql, new {Ids = ids}).ToList();
             }
         }
+
+        public void Update(PersonDo person)
+        {
+            const string sql = "UPDATE [People] SET [Name] = @Name, [Remark] = @Remark, [Status] = @Status WHERE Id = @Id";
+            using (var connection = DbConnection.GetDbConnection())
+            {
+                connection.Execute(sql, person);
+            }
+        }
+
+        public int Delete(Person person)
+        {
+            const string sql = "DELETE FROM [People] WHERE Id = @ID";
+            using (var connection = DbConnection.GetDbConnection())
+
+            {
+                return connection.Execute(sql, person);
+            }
+        }
+
+        public int Delete(IReadOnlyList<Person> people)
+        {
+            const string sql = "DELETE FROM [People] WHERE Id IN @Ids";
+            using (var connection = DbConnection.GetDbConnection())
+
+            {
+                return connection.Execute(sql, people);
+            }
+        }
     }
 }
