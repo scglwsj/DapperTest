@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Dapper;
 using DapperTest.Common.Interface.Repository;
 using DapperTest.Common.Models.Pages;
@@ -55,7 +54,7 @@ namespace DapperTest.Repository
                                     ) AS [PagePeople]
                                     WHERE [PersonIndex] > @PageSize * (@PageIndex - 1) 
                                     AND [PersonIndex] <= @PageSize * @PageIndex";
-            const string countSql = "SELECT COUNT(*) AS [Count] FROM [People] WHERE 1 = 1";
+            const string countSql = "SELECT COUNT(Id) AS [Count] FROM [People] WHERE 1 = 1";
             using (var connection = DbConnection.GetDbConnection())
             {
                 var items = connection.Query<PersonDo>(querySql, new
