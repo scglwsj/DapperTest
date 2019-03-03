@@ -2,9 +2,9 @@
 {
     public class Person
     {
-        public int Id { get; private set; }
-        public string Name { get; private set; }
-        public string Remark { get; private set; }
+        public int Id { get; }
+        public string Name { get; }
+        public string Remark { get; }
         public PersonStatus Status { get; private set; }
 
         public Person(string name, string remark)

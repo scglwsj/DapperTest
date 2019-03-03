@@ -2,6 +2,7 @@
 using System.Linq;
 using DapperTest.Common.Interface.ApplicationService;
 using DapperTest.Common.Interface.Repository;
+using DapperTest.Common.Models.Pages;
 using DapperTest.Common.Models.People;
 using Unity;
 
@@ -35,6 +36,11 @@ namespace DapperTest.ApplicationService
         public IList<Person> FindByIds(IReadOnlyList<int> ids)
         {
             return _personRepository.FindByIds(ids).Select(p => p.ConvertToPerson()).ToList();
+        }
+
+        public Page<Person> GetPage(int pageSize, int pageIndex)
+        {
+            return _personRepository.GetPage(pageSize, pageIndex).Convert(p => p.ConvertToPerson());
         }
 
         public void Delete(Person person)

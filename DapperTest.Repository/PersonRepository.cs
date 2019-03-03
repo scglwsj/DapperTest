@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using Dapper;
 using DapperTest.Common.Interface.Repository;
+using DapperTest.Common.Models.Pages;
 using DapperTest.Common.Models.People;
 
 namespace DapperTest.Repository
@@ -44,9 +47,32 @@ namespace DapperTest.Repository
             }
         }
 
+        public Page<PersonDo> GetPage(int pageSize, int pageIndex)
+        {
+            const string querySql = @"SELECT * FROM (
+                                    SELECT * ,ROW_NUMBER() OVER ( ORDER BY ID DESC) AS [PersonIndex] 
+                                        FROM [People] 
+                                    ) AS [PagePeople]
+                                    WHERE [PersonIndex] > @PageSize * (@PageIndex - 1) 
+                                    AND [PersonIndex] <= @PageSize * @PageIndex";
+            const string countSql = "SELECT COUNT(*) AS [Count] FROM [People] WHERE 1 = 1";
+            using (var connection = DbConnection.GetDbConnection())
+            {
+                var items = connection.Query<PersonDo>(querySql, new
+                {
+                    PageSize = pageSize,
+                    PageIndex = pageIndex
+                }).ToList();
+                var totalCount = connection.ExecuteScalar<int>(countSql);
+                var pageCount = (int) Math.Ceiling((double) totalCount / pageSize);
+                return new Page<PersonDo>(pageCount, totalCount, items);
+            }
+        }
+
         public void Update(PersonDo person)
         {
-            const string sql = "UPDATE [People] SET [Name] = @Name, [Remark] = @Remark, [Status] = @Status WHERE Id = @Id";
+            const string sql =
+                "UPDATE [People] SET [Name] = @Name, [Remark] = @Remark, [Status] = @Status WHERE Id = @Id";
             using (var connection = DbConnection.GetDbConnection())
             {
                 connection.Execute(sql, person);
